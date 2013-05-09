@@ -50,6 +50,18 @@ To start BookHero run :
 
         BookHero --start
 
+This will start BookHero on http://127.0.0.1:9911 --- or any other IP that's configured on your host.
+
+To add books to BookHero Library, got to Settings, fill in the full path to the directory where all your eBooks are
+don't worry about the order of your eBooks in this library, BookHero will scan through everything.
+
+Add you Google Book API (note you don't have to do this, but BookHero works MUCH better with one, due to the Google API usage
+restrictions.) To get a Google Books API go to : 
+
+https://code.google.com/apis/console
+Go to Services, set Books to "On"
+Click on "API access" and copy the API key and enter it on the Settings page in Bookhero        
+
 To stop BookHero run :
 
         BookHero --stop
