@@ -32,7 +32,7 @@ case "$1" in
     --start) startBookHero "2" ;;
     --stop) stopBookHero ;; 
     *) echo "Usage : "
-       echo "    --firstime (Run this the first time your setting up BookHero)"
+       echo "    --firsttime (Run this the first time your setting up BookHero)"
        echo "    --start (Start up BookHero)"
        echo "    --stop (Stop BookHero)"
      ;;
