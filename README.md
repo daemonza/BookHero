@@ -30,15 +30,36 @@ Using Zurb Foundation responsive css design BookHero works on most mobile device
 
 ## Installation 
 
+First thing, you need Ruby and Rails working to run BookHero. Have a look at
+https://rvm.io/rvm/install/
+to setup it up. Basically you need to run the following command :
+
+        curl -#L https://get.rvm.io | bash -s stable --autolibs=3 --ruby
+
 Git clone the repository
 cd  to BookHero directory and run the
-    StartBookHero --firsttime
+
+        BookHero --firsttime
+
 command.
 This will setup BookHero for it's first startup and then start it.
 
 ## Usage
 
+To start BookHero run :
+
+        BookHero --start
+
+To stop BookHero run :
+
+        BookHero --stop
+
 ## Issues
 
-Google API usage
+BookHero use the Google Books API to get all the information about the books in the library. Google limits
+you to 1000 API requests a day. Which normally would not be a issue on a day to day basis, however if you have
+a ebook colleciton that's bigger than 1000, your going to hit the google limit during import. Busy looking at
+a way to get around it.
 
+It's tested on OS X (mountain lion), should work on any Linux/UNIX with Ruby/Rails enviroument. Things to look out
+for might be the stop command of the BookHero script.

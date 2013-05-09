@@ -14,12 +14,16 @@ function firstTime
 
 function startBookHero
 {
-	echo "starting"
+	echo -n "Starting BookHero..."
+	unicorn_rails -p 9911 -D
+	echo "done"
 }
 
 function stopBookHero
 {
-	echo "stopping"
+	echo -n "Stopping BookHero..."
+	ps aux | grep unicorn | grep master | grep 9911 | cut -d" " -f4 | xargs kill
+	echo "done"
 }
 
 
