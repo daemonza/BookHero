@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="large 12 colums panel">
+		<h4>Settings</h4>
+	</div>
+</div>
+
+<form method="post" action="/config/save">
+  <div class="row">
+    <div class="small-8">
+      <div class="row">
+        <div class="small-3 columns">
+          <label for="right-label" class="right inline">Library path</label>
+        </div>
+        <div class="small-9 columns">
+          <input type="text" id="right-label" value="<%= @configured_library_path %>" name="library_path">
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <label for="right-label" class="right inline">Google books API key</label>
+        </div>
+        <div class="small-9 columns">
+          <input type="text" id="right-label" value="<%= @configured_google_api_key %>" name="google_api_key">
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          &nbsp
+        </div>
+        <div class="small-9 columns">
+          <input type="submit" class="button small" value="Save">
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

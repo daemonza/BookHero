@@ -1,0 +1,44 @@
+<div class="row">
+	<div class="12 large colum panel">
+	  <h4>Main</h4>
+	</div>
+</div>
+
+<div class="row">
+	<div class="2 large colum alert-box">
+	  Number of books in library : <%= @number_of_books %>
+	</div>	
+</div>
+
+<div class="row">
+	<div class="2 large colum panel">
+	  Recently added
+	</div>	
+</div>
+
+<div class="row">
+<table>
+<tbody>
+    <% @last_six_books.each do |sixbook| %>
+    <tr>
+      <td><img src=<%= sixbook.cover %>> </td>
+      <td><%= sixbook.title %></td>
+      <td><a href="#" data-reveal-id="<%= sixbook.id %>_description" id="desc_six_button" class="button small">Description</a></td>
+      <td>
+          <%= link_to "Download", {:controller=>"books", :action =>"download", :download_book=>sixbook.id},
+                                 {:class =>"button small"} %>
+      </td>
+      <td>                          
+         <%= link_to "Remove", {:controller =>"books", :action =>"remove", :remove_book=>sixbook.id}, 
+                               {:class =>"button alert small"} %>
+      </td>
+    </tr>
+     <div id="<%= sixbook.id %>_description" class="reveal-modal">
+        <p class="lead"><%= sixbook.title %> </p>
+        <p><%= sixbook.description %></p>
+        <a class="close-reveal-modal">&#215;</a>
+     </div>
+    <% end %>
+  </tbody>
+</table>
+</div>

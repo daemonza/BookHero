@@ -1,0 +1,26 @@
+<!-- Tab theme -->
+<% @my_books.each do |book| %>
+
+ <div class="section-container tabs" data-section>
+  <section>
+    <p class="title" data-section-title><a href="#panel1"><%= book.title %></a></p>
+    <div class="content" data-section-content>
+      <p>
+      	 <img src=<%= book.cover %>>
+      	 Author : <%= book.author %>
+      	 Rating : <%= book.rating %>
+         <%= link_to "Download", {:controller=>"books", :action =>"download", :download_book=>book.id},
+                                 {:class =>"button small"} %>
+      	 <%= link_to "Remove", {:controller =>"books", :action =>"remove", :remove_book=>book.id}, 
+      	                       {:class =>"button alert small"} %>
+      </p>
+    </div>
+  </section>
+  <section>
+    <p class="title" data-section-title><a href="#panel2">Description</a></p>
+    <div class="content" data-section-content>
+      <p><%= book.description %></p>
+    </div>
+  </section>
+</div>
+<% end %> 

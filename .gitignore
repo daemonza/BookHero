@@ -3,6 +3,8 @@
 .sass-cache
 capybara-*.html
 .rspec
+_TODO
+publish.sh
 /.bundle
 /vendor/bundle
 /log/*

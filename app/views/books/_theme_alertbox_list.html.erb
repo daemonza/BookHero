@@ -1,0 +1,19 @@
+<!-- Alert box theme -->
+<% @my_books.each do |book| %>
+
+ <div class="row">
+  <div class="6 large colum">
+    <div class="alert-box">
+      <img src=<%= book.cover %>> | <%= book.title %> | 
+      <a href="#" data-reveal-id="showDescription" id="desc_button" class="button small">Description</a>
+    </div>
+  </div>    
+</div> 
+
+ <div id="showDescription" class="reveal-modal">
+        <p class="lead"><%= book.title %> </p>
+        <p><%= book.description %></p>
+         <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<% end %>
