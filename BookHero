@@ -17,6 +17,7 @@ function startBookHero
 	echo -n "Starting BookHero..."
 	unicorn_rails -p 9911 -D
 	echo "done"
+	echo "BookHero running on http://0.0.0.0:9911"
 }
 
 function stopBookHero

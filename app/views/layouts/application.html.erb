@@ -13,7 +13,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "BookHero" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -21,8 +21,95 @@
   </head>
 
   <body>
+ 
+
+<!-- start -->
+<div class="row">
+      <div class="large-12 columns">
+
+        <nav class="top-bar">
+          <ul class="title-area">
+            <!-- Title Area -->
+            <li class="name">
+              <h1><%= link_to "BookHero", :controller=>"books", :action=>"main" %></h1>
+            </li>
+            <li class="toggle-topbar menu-icon"><a href=""><span>Menu</span></a></li>
+          </ul>
+
+          <section class="top-bar-section">
+            <ul class="left">
+              <li class="divider"></li>
+              <li class="has-dropdown"><%= link_to "Books", :controller=>"books", :action=>"list" %>
+                <ul class="dropdown">
+                  <li><label>Level One</label></li>
+                  <li><a href="#">Sub-item 1</a></li>
+                  <li><a href="#">Sub-item 2</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Sub-item 3</a></li>
+                  <li class="has-dropdown"><a href="#">Sub-item 4</a>
+
+                    <ul class="dropdown">
+                      <li><label>Level Two</label></li>
+                      <li class="has-dropdown"><a href="#">Sub-item 1</a>
+
+                        <ul class="dropdown">
+                          <li><label>Level Three</label></li>
+                          <li class="has-dropdown"><a href="#">Sub-item 1</a>
+
+                            <ul class="dropdown">
+                              <li><label>Level Four</label></li>
+                              <li><a href="#">Sub-item 1</a></li>
+                            </ul>
+                          </li>
+                          <li><a href="#">Sub-item 2</a></li>
+                          <li><a href="#">Sub-item 3</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">Sub-item 4</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="#">Sub-item 2</a></li>
+                      <li><a href="#">Sub-item 3</a></li>
+                      <li><a href="#">Sub-item 4</a>
+                    </ul>
+                  </li>
+                  <li><a href="#">Sub-item 5</a></li>
+                </ul>
+              </li>
+              <!-- <li class="divider"></li> -->
+          <!--     <li class="divider hide-for-small"></li>
+              <li><a href="#">Scan 1</a></li> -->
+            </ul>
+
+            <ul class="left">
+              <li class="divider hide-for-small"></li>
+              <li><a href="#" data-reveal-id="scanNow" id="desc_button">Scan</a></li>
+               <li class="divider"></li>
+            </ul>
+
+            <!-- Right Nav Section -->
+          <!--    <ul class="right">
+              <li class="divider hide-for-small"></li>
+              <li><input type=text name="search" placeholder="Book Title"></li>
+            </ul> -->
+            <ul class="right">
+               <li class="divider hide-for-small"></li>
+              <li><input type=text name="search" placeholder="Book Title"></li>
+              <li class="divider hide-for-small"></li>
+              <li><%= link_to "Settings", :controller=>"config", :action=>"settings" %></li>
+            </ul>
+
+          </section>
+        </nav>
+
+        <!-- <hr> -->
+      </div>
+    </div>
+
+<!-- end -->
+
+
     <!-- toolbar -->
-  <div class="row">
+<!--   <div class="row">
     <div class="large-3 columns panel">
       <%= link_to "Main", :controller=>"books", :action=>"main" %>
     </div>
@@ -30,13 +117,12 @@
       <%= link_to "Books", :controller=>"books", :action=>"list" %>
     </div>
     <div class="large-3 columns panel">
-      <!-- <%= link_to "Scan Now", :controller=>"books", :action=>"scan" %> -->
       <a href="#" data-reveal-id="scanNow" id="scanNowButton">Scan Now</a>
     </div>
     <div class="large-3 columns panel">
       <%= link_to "Settings", :controller=>"config", :action=>"settings" %>
     </div>
-  </div>
+  </div>  -->
 
     <%= yield %>
 
