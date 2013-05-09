@@ -60,7 +60,10 @@ restrictions.) To get a Google Books API go to :
 
 https://code.google.com/apis/console
 Go to Services, set Books to "On"
-Click on "API access" and copy the API key and enter it on the Settings page in Bookhero        
+Click on "API access" and copy the API key and enter it on the Settings page in Bookhero   
+
+
+Click the "Scan now" button at the top for BookHero to start scanning for books and importing them.     
 
 To stop BookHero run :
 
