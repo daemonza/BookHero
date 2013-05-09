@@ -1,6 +1,44 @@
 BookHero
 ========
 
-eBook web library 
+## eBook web library
+
+eBook library written in Ruby (Rails) using Google Books API for metadata information.
+
+I had the need for a web based eBook manager, that can run on my home server, from where I can
+browse my library from any of my devices(ipad, macbook, android phone etc.).
+
+At the moment the core basic features work
+* Listing books
+* Able to download books
+* Remove books from library (only remove in BookHero)
+* Scan for new books
+
+Got a couple of more features planned, but that's it for now.
 
 ![Main Window](https://raw.github.com/daemonza/BookHero/master/screenshots/main.png)
+
+![Book Description](https://raw.github.com/daemonza/BookHero/master/screenshots/main_description.png)
+
+
+Using Zurb Foundation responsive css design BookHero works on most mobile devices. 
+
+![iPhone](https://raw.github.com/daemonza/BookHero/master/screenshots/iphone.png)
+
+![iPhone Book Description](https://raw.github.com/daemonza/BookHero/master/screenshots/iphone_description.png)
+
+
+## Installation 
+
+Git clone the repository
+cd  to BookHero directory and run the
+    StartBookHero --firsttime
+command.
+This will setup BookHero for it's first startup and then start it.
+
+## Usage
+
+## Issues
+
+Google API usage
+
