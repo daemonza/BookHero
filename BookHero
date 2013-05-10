@@ -23,8 +23,14 @@ function startBookHero
 function stopBookHero
 {
 	echo -n "Stopping BookHero..."
-	ps aux | grep unicorn | grep master | grep 9911 | cut -d" " -f4 | xargs kill
-	echo "done"
+	if [ -f tmp/pids/unicorn.pid ]; then
+	  UNICORN_PID=`cat tmp/pids/unicorn.pid`
+	  kill $UNICORN_PID
+	  echo "done"
+	else
+		echo "BookHero does not seem to be running"
+		exit 1
+	fi
 }
 
 
