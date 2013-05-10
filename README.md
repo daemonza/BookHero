@@ -76,5 +76,4 @@ you to 1000 API requests a day. Which normally would not be a issue on a day to 
 a ebook colleciton that's bigger than 1000, your going to hit the google limit during import. Busy looking at
 a way to get around it.
 
-It's tested on OS X (mountain lion), should work on any Linux/UNIX with Ruby/Rails enviroument. Things to look out
-for might be the stop command of the BookHero script.
+It's tested on OS X (mountain lion), should work on any Linux/UNIX with Ruby/Rails enviroument.
