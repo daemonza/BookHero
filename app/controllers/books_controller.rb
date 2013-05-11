@@ -4,9 +4,6 @@ class BooksController < ApplicationController
   # Scans dir and sub dirs for books and adds them to the Book model	
   def scan
 
-   puts "==================================" 
-   puts "Scanning"
-   puts "==================================" 
 
     config_file = File.expand_path('../../config/bookhero.conf',File.dirname(__FILE__))
     if !File.exist?(config_file)
@@ -32,11 +29,7 @@ class BooksController < ApplicationController
           book_data = GoogleBooks.search("#{found_book}").first
         else
      		  book_data = GoogleBooks.search("#{found_book}",{:api_key => google_api_key}).first
-        end
-
-   puts "==================================" 
-   puts "found #{found_book}"
-   puts "==================================" 
+        end 
         
         # Passing to the Book model
         # Book(id: integer, cover: string, title: string, author: string, description: string, rating: integer, created_at: datetime, updated_at: datetime)
@@ -71,6 +64,14 @@ class BooksController < ApplicationController
     dl_book = Book.find_by_id(@download_book)
     download_link = dl_book.download_path
     send_file download_link
+  end
+
+  # Search for books
+  def search
+    search = params[:search]
+     books=Book.arel_table
+     @book_search = Book.where(books[:title].matches("%#{search}%")) 
+
   end
 
   # Remove book from BookHero library and delete the book on the

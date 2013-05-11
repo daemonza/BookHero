@@ -8,6 +8,7 @@ BookHero::Application.routes.draw do
   get "books/list"
   get "books/remove"
   get "books/download"
+  post "books/search"
 
 
    root to: "books#main"

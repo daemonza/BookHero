@@ -23,7 +23,6 @@
   <body>
  
 
-<!-- start -->
 
 <div class="row">
   <!-- <div class="contain-to-grid">   -->
@@ -89,44 +88,24 @@
             </ul>
 
             <!-- Right Nav Section -->
-          <!--    <ul class="right">
-              <li class="divider hide-for-small"></li>
-              <li><input type=text name="search" placeholder="Book Title"></li>
-            </ul> -->
+         
             <ul class="right">
                <li class="divider hide-for-small"></li>
                <!-- Future functionality -->
-              <!-- <li><input type=text name="search" placeholder="Search"></li>
-              <li class="divider hide-for-small"></li> -->
+              <li><form method="post" action="/books/search"><input type=text name="search" placeholder="Search"></form></li>
+              <li class="divider hide-for-small"></li>
               <li><%= link_to "Settings", :controller=>"config", :action=>"settings" %></li>
             </ul>
 
           </section>
         </nav>
 
-        <!-- <hr> -->
+  
       </div>
       </div>
     </div>
 
-<!-- end -->
 
-
-    <!-- toolbar -->
-<!--   <div class="row">
-    <div class="large-3 columns panel">
-      <%= link_to "Main", :controller=>"books", :action=>"main" %>
-    </div>
-     <div class="large-3 columns panel">
-      <%= link_to "Books", :controller=>"books", :action=>"list" %>
-    </div>
-    <div class="large-3 columns panel">
-      <a href="#" data-reveal-id="scanNow" id="scanNowButton">Scan Now</a>
-    </div>
-    <div class="large-3 columns panel">
-      <%= link_to "Settings", :controller=>"config", :action=>"settings" %>
-    </div>
-  </div>  -->
 
     <%= yield %>
 
