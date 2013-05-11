@@ -1,0 +1,28 @@
+
+<div class="row">
+<table>
+
+  <tbody>
+    <% @book_search.each do |result| %>
+    <tr>
+      <td><img src=<%= result.cover %>> </td>
+      <td><%= result.title %></td>
+      <td><a href="#" data-reveal-id="<%= result.id %>_description" id="desc_button" class="button small">Description</a></td>
+      <td>
+          <%= link_to "Download", {:controller=>"books", :action =>"download", :download_book=>result.id},
+                                 {:class =>"button small"} %>
+      </td>
+      <td>                          
+         <%= link_to "Remove", {:controller =>"books", :action =>"remove", :remove_book=>result.id}, 
+                               {:class =>"button alert small"} %>
+      </td>
+    </tr>
+     <div id="<%= result.id %>_description" class="reveal-modal">
+        <p class="lead"><%= result.title %> </p>
+        <p><%= result.description %></p>
+        <a class="close-reveal-modal">&#215;</a>
+     </div>
+    <% end %>
+  </tbody>
+</table>
+</div>
