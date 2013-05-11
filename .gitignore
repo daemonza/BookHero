@@ -3,6 +3,9 @@
 .sass-cache
 capybara-*.html
 .rspec
+*.mobi
+*.epub
+*.pdf
 _TODO
 publish.sh
 /.bundle

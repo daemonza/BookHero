@@ -4,6 +4,10 @@ class BooksController < ApplicationController
   # Scans dir and sub dirs for books and adds them to the Book model	
   def scan
 
+   puts "==================================" 
+   puts "Scanning"
+   puts "==================================" 
+
     config_file = File.expand_path('../../config/bookhero.conf',File.dirname(__FILE__))
     if !File.exist?(config_file)
       default_library_path = File.expand_path('../../books/',File.dirname(__FILE__))
@@ -29,6 +33,10 @@ class BooksController < ApplicationController
         else
      		  book_data = GoogleBooks.search("#{found_book}",{:api_key => google_api_key}).first
         end
+
+   puts "==================================" 
+   puts "found #{found_book}"
+   puts "==================================" 
         
         # Passing to the Book model
         # Book(id: integer, cover: string, title: string, author: string, description: string, rating: integer, created_at: datetime, updated_at: datetime)
