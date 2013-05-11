@@ -2,6 +2,13 @@
 <div class="row">
 <table>
 
+ <% if @book_search.empty? %>
+ <div class="row">
+  <div class="12 large colum alert-box alert" align="center">Sorry I did not find anything</div>
+</div>
+
+ <% else %> 
+
   <tbody>
     <% @book_search.each do |result| %>
     <tr>
@@ -26,3 +33,5 @@
   </tbody>
 </table>
 </div>
+
+<% end %>

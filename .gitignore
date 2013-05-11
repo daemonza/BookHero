@@ -6,6 +6,8 @@ capybara-*.html
 *.mobi
 *.epub
 *.pdf
+config/tmp_config
+publish.sh
 _TODO
 publish.sh
 /.bundle

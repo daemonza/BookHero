@@ -68,7 +68,7 @@ class BooksController < ApplicationController
 
   # Search for books
   def search
-    search = params[:search]
+     search = params[:search]
      books=Book.arel_table
      @book_search = Book.where(books[:title].matches("%#{search}%")) 
 
