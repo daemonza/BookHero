@@ -13,6 +13,7 @@ At the moment the core basic features work
 * Able to download books
 * Remove books from library (only remove in BookHero)
 * Scan for new books
+* Single book view
 
 Got a couple of more features planned, but that's it for now.
 
