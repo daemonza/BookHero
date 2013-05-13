@@ -1,0 +1,29 @@
+<br>
+<div class="row">
+  <div class="2 large colum">
+     <img src="<%= @bookinfo.cover %>"> 
+	 </div>
+<br>	 
+	<div class="10 large colum">
+
+		<div class="panel"><strong> Title </strong> : <%= @bookinfo.title %> </div>
+		<div class="panel"><strong> Author </strong> : <%= @bookinfo.author %> </div>
+		<div class="panel"><strong>  Description </strong> : <%= @bookinfo.description %> </div> 
+		<div class="panel"><strong>  Rating </strong> : <%= @bookinfo.rating %> </div>
+
+		
+	</div>
+
+	<div class="row">
+		<div class="12 large colum">
+			<form>
+				<!--<input type=button class="button small" value="Edit"> -->
+         <%= link_to "Download", {:controller=>"books", :action =>"download", :download_book=>@bookinfo.id},
+                                 {:class =>"button small"} %>
+         <%= link_to "Remove", {:controller =>"books", :action =>"remove", :remove_book=>@bookinfo.id}, 
+                               {:class =>"button alert small"} %>
+			</form>
+		</div>
+	</div>	
+
+ </div>		
