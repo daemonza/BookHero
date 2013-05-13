@@ -1,6 +1,8 @@
 require 'yaml'
 
 class BooksController < ApplicationController
+
+
   # Scans dir and sub dirs for books and adds them to the Book model	
   def scan
 
@@ -24,24 +26,28 @@ class BooksController < ApplicationController
      	if accepted_formats.include? File.extname("#{list_book}")
         found_book = File.basename("#{list_book}",File.extname("#{list_book}"))
 
-        # Setup search with API key 
-        if google_api_key.blank?
-          book_data = GoogleBooks.search("#{found_book}").first
-        else
-     		  book_data = GoogleBooks.search("#{found_book}",{:api_key => google_api_key}).first
-        end 
+				# Don't do a google book API call if the book is already in the DB. 
+        check_book = Book.find_by_title("#{found_book}")
+        if check_book.nil?
+            # Setup search with API key 
+            if google_api_key.blank?
+              book_data = GoogleBooks.search("#{found_book}").first
+            else
+     		      book_data = GoogleBooks.search("#{found_book}",{:api_key => google_api_key}).first
+            end 
         
-        # Passing to the Book model
-        # Book(id: integer, cover: string, title: string, author: string, description: string, rating: integer, created_at: datetime, updated_at: datetime)
-        Book.create(cover: "#{book_data.image_link(:zoom => 5)}",
-                    title: "#{found_book}",
-                    author: "#{book_data.authors}",
-                    description: "#{book_data.description}",
-                    rating: "#{book_data.average_rating}",
-                    download_path: "#{list_book}")
-     	 end
-     end
-   end
+            # Passing to the Book model
+            # Book(id: integer, cover: string, title: string, author: string, description: string, rating: integer, created_at: datetime, updated_at: datetime)
+            Book.create(cover: "#{book_data.image_link(:zoom => 5)}",
+                        title: "#{found_book}",
+                        author: "#{book_data.authors}",
+                        description: "#{book_data.description}",
+                        rating: "#{book_data.average_rating}",
+      						  	  download_path: "#{list_book}")
+	     end   
+      end
+		 end 
+   end 
   end
 
   # Gets book details out of Book model and display it
