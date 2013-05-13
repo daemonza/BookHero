@@ -74,6 +74,11 @@ class BooksController < ApplicationController
 
   end
 
+  # Shows a single book
+  def viewbook
+    @bookinfo = Book.find_by_id(params[:bookid])
+  end
+
   # Remove book from BookHero library and delete the book on the
   # filesystem.
   def remove

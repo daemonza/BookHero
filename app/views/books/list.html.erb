@@ -10,7 +10,11 @@
   <tbody>
     <% @my_books.each do |book| %>
     <tr>
-      <td><img src=<%= book.cover %>> </td>
+			<!--<td><img src=<%= book.cover %>> </td>-->
+			<td>
+				<%= link_to (image_tag book.cover), {:controller=>"books", :action=>"viewbook", :bookid=>book.id} %>
+			</td>
+
       <td><%= book.title %></td>
       <td><a href="#" data-reveal-id="<%= book.id %>_description" id="desc_button" class="button small">Description</a></td>
       <td>

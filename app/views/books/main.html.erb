@@ -21,7 +21,9 @@
 <tbody>
     <% @last_six_books.each do |sixbook| %>
     <tr>
-      <td><img src=<%= sixbook.cover %>> </td>
+			<td>
+				<%= link_to (image_tag sixbook.cover), {:controller=>"books", :action=>"viewbook", :bookid=>sixbook.id} %>
+      </td>
       <td><%= sixbook.title %></td>
       <td><a href="#" data-reveal-id="<%= sixbook.id %>_description" id="desc_six_button" class="button small">Description</a></td>
       <td>
