@@ -22,7 +22,8 @@ class BooksController < ApplicationController
    # Support mobi, epub and pdf
  	 accepted_formats = [".mobi",".epub",".pdf"]
  	 books = Dir.glob("#{library_path}/**/*")
-     books.each do |list_book|
+
+    books.each do |list_book|
      	if accepted_formats.include? File.extname("#{list_book}")
         found_book = File.basename("#{list_book}",File.extname("#{list_book}"))
 
@@ -44,11 +45,13 @@ class BooksController < ApplicationController
                         description: "#{book_data.description}",
                         rating: "#{book_data.average_rating}",
       						  	  download_path: "#{list_book}")
-	     end   
-      end
-		 end 
-   end 
-  end
+	      end   
+       end
+
+		end # books.each
+
+   end # pid
+end
 
   # Gets book details out of Book model and display it
   def list
@@ -92,6 +95,7 @@ class BooksController < ApplicationController
     delete_book = Book.find_by_id(@remove_book)
     delete_book.destroy
     # Delete the actual book here as well -- not now enabled for testing
+    File.delete(delete_book.download_path)
     redirect_to :action => "list"
   end
 end
