@@ -15,8 +15,11 @@ function firstTime
 function startBookHero
 {
 	if [ -f tmp/pids/unicorn.pid ]; then
-	  echo "BookHero is already running"
-	  exit 1
+	  if [ ! -z `ps aux | grep [u]nicorn` ]; then
+		  echo "BookHero is already running"
+		  exit 1
+	  fi
+	  rm tmp/pids/unicorn.pid
 	fi
 	 
 	echo -n "Starting BookHero..."
@@ -29,8 +32,6 @@ function stopBookHero
 {
 	echo -n "Stopping BookHero..."
 	if [ -f tmp/pids/unicorn.pid ]; then
-	  UNICORN_PID=`cat tmp/pids/unicorn.pid`
-	  kill $UNICORN_PID
 	  echo "done"
 	else
 		echo "BookHero does not seem to be running"
