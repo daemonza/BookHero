@@ -20,11 +20,13 @@ class BooksController < ApplicationController
   	
    pid = Process.fork do  
    # Support mobi, epub and pdf
- 	 accepted_formats = [".mobi",".epub",".pdf"]
- 	 books = Dir.glob("#{library_path}/**/*")
+ 	 # accepted_formats = [".mobi",".epub",".pdf"]
+   # File::FNM_CASEFOLD -- case insensitive. Weird Ruby syntax.
+   books = Dir.glob("#{library_path}/**/*.{mobi,epub,pdf}",File::FNM_CASEFOLD)
+ 	 # books = Dir.glob("#{library_path}/**/*")
 
     books.each do |list_book|
-     	if accepted_formats.include? File.extname("#{list_book}")
+     	# if accepted_formats.include? File.extname("#{list_book}")
         found_book = File.basename("#{list_book}",File.extname("#{list_book}"))
 
 				# Don't do a google book API call if the book is already in the DB. 
@@ -46,7 +48,7 @@ class BooksController < ApplicationController
                         rating: "#{book_data.average_rating}",
       						  	  download_path: "#{list_book}")
 	      end   
-       end
+       # end
 
 		end # books.each
 
